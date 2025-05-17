@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Role - CityMaid</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --whatsapp-primary: #128C7E;
+            --whatsapp-secondary: #075E54;
+            --whatsapp-light: #E8F5E9;
+            --whatsapp-text-primary: #333333;
+            --whatsapp-text-secondary: #666666;
+        }
+        .bg-whatsapp-primary { background-color: var(--whatsapp-primary); }
+        .bg-whatsapp-secondary { background-color: var(--whatsapp-secondary); }
+        .bg-whatsapp-light { background-color: var(--whatsapp-light); }
+        .text-whatsapp-primary { color: var(--whatsapp-primary); }
+        .text-whatsapp-secondary { color: var(--whatsapp-text-secondary); }
+        .rounded-whatsapp { border-radius: 10px; }
+        .shadow-whatsapp { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+        .hover\:shadow-whatsapp-hover:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+    </style>
+</head>
+<body class="bg-whatsapp-light min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-10">
+            <a href="../index.html" class="text-3xl font-bold text-whatsapp-primary">CITYMAID</a>
+        </div>
+
+        <!-- Select Role Card -->
+        <div class="bg-white rounded-whatsapp shadow-whatsapp p-8">
+            <h2 class="text-2xl font-semibold text-center text-whatsapp-text-primary mb-2">Choose Your Role</h2>
+            <p class="text-whatsapp-secondary text-center mb-8">Select how you want to use CityMaid</p>
+            
+            <div class="space-y-4">
+                <a href="register.html?type=employer" class="block group">
+                    <div class="bg-white rounded-whatsapp shadow-whatsapp p-6 hover:shadow-whatsapp-hover transition-all duration-200 border border-transparent hover:border-whatsapp-primary/20">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-whatsapp-light flex items-center justify-center group-hover:bg-whatsapp-primary/10 transition-colors">
+                                <i class="fas fa-user-tie text-whatsapp-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-whatsapp-text-primary">I'm an Employer</h3>
+                                <p class="text-whatsapp-secondary text-sm">I want to hire cleaning services</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="register.html?type=maid" class="block group">
+                    <div class="bg-white rounded-whatsapp shadow-whatsapp p-6 hover:shadow-whatsapp-hover transition-all duration-200 border border-transparent hover:border-whatsapp-primary/20">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-whatsapp-light flex items-center justify-center group-hover:bg-whatsapp-primary/10 transition-colors">
+                                <i class="fas fa-broom text-whatsapp-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg text-whatsapp-text-primary">I'm a Maid</h3>
+                                <p class="text-whatsapp-secondary text-sm">I want to offer cleaning services</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-8 text-center pt-4 border-t border-gray-100">
+                <p class="text-whatsapp-secondary text-sm">
+                    Already have an account? 
+                    <a href="login.html" class="text-whatsapp-primary font-medium hover:underline">
+                        Sign in
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>
