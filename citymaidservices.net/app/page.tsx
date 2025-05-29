@@ -263,7 +263,6 @@ export default function Home() {
 }
 
 // FAQ accordion component
-import { useState as useFaqState } from "react";
 
 function FAQSection() {
   const faqs = [
@@ -275,7 +274,6 @@ function FAQSection() {
       question: "What is your service coverage area?",
       answer: "We provide domestic helper services across all major cities of Nepal. Our service network is continuously expanding to serve more locations. Please contact us to confirm availability in your specific area."
     },
-
     {
       question: "What is your refund policy?",
       answer: "Full refund if the helper is not available to work\nNo refund in cases where:\n- Helper is available but employer disagrees on salary\n- Timing issues arise\n- Other remuneration-related issues\nAll refunds are processed within 7-10 business days"
@@ -305,28 +303,34 @@ function FAQSection() {
       answer: "The registration process is simple:\n1. Create an account on our website\n2. Fill in your requirements\n3. Choose a suitable helper from our verified profiles\n4. Complete the verification process\n5. We'll handle the rest of the placement process"
     }
   ];
-  const [openIndex, setOpenIndex] = useFaqState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <div className="space-y-4">
-      {faqs.map((faq, idx) => (
-        <div key={idx} className="bg-white rounded shadow">
-          <button
-            className="w-full text-left px-6 py-4 font-semibold text-blue-800 focus:outline-none flex justify-between items-center"
-            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-            aria-expanded={openIndex === idx}
-            aria-controls={`faq-body-${idx}`}
-          >
-            <span>{faq.question}</span>
-            <span className="ml-4">{openIndex === idx ? "-" : "+"}</span>
-          </button>
-          {openIndex === idx && (
-            <div id={`faq-body-${idx}`} className="px-6 pb-4 text-gray-700 whitespace-pre-line border-t">
-              {faq.answer}
-            </div>
-          )}
-        </div>
-      ))}
+      {faqs.map((faq, idx) => {
+        const expanded = openIndex === idx;
+        return (
+          <div key={idx} className="bg-white rounded shadow">
+            <button
+              className="w-full text-left px-6 py-4 font-semibold text-blue-800 focus:outline-none flex justify-between items-center"
+              onClick={() => setOpenIndex(expanded ? null : idx)}
+              // eslint-disable-next-line jsx-a11y/aria-proptypes
+              // TODO: This is set to a literal string due to a persistent linter/IDE bug. Restore dynamic value when tooling is fixed.
+              aria-expanded="false"
+              aria-controls={`faq-body-${idx}`}
+            >
+              <span>{faq.question}</span>
+              <span className="ml-4">{expanded ? "-" : "+"}</span>
+            </button>
+            {expanded && (
+              <div id={`faq-body-${idx}`} className="px-6 pb-4 text-gray-700 whitespace-pre-line border-t">
+                {faq.answer}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
+
 

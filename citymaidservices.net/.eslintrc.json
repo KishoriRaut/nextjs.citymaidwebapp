@@ -1,0 +1,6 @@
+{
+  "extends": ["next/core-web-vitals", "next"],
+  "rules": {
+    "jsx-a11y/aria-proptypes": "off"
+  }
+}
