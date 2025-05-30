@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.citymaidservices.net
+
+# Sitemaps
+Sitemap: https://www.citymaidservices.net/sitemap.xml
