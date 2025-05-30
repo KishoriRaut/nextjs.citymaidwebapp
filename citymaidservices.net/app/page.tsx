@@ -6,32 +6,6 @@ import { useState } from "react";
 import { MdHome, MdCleaningServices, MdInfo, MdAttachMoney, MdStar, MdEmail, MdPhone, MdHelp, MdElderly, MdChildCare, MdOutlinePerson, MdOutlineRestaurantMenu } from "react-icons/md";
 import { FaUserTie, FaUserNurse, FaUserCog } from "react-icons/fa";
 
-export const metadata = {
-  title: "CityMaid Services – Trusted Maid & Domestic Helper Placement in Nepal",
-  description: "Connecting you with reliable, professional maids, nannies, cooks, and caregivers for your home or business in Nepal. Verified staff, flexible services, and full support.",
-  openGraph: {
-    title: "CityMaid Services – Trusted Maid & Domestic Helper Placement in Nepal",
-    description: "Connecting you with reliable, professional maids, nannies, cooks, and caregivers for your home or business in Nepal.",
-    url: "https://www.citymaidservices.net",
-    siteName: "CityMaid Services",
-    images: [
-      {
-        url: "https://www.citymaidservices.net/og-image.jpg", // Replace with your actual image
-        width: 1200,
-        height: 630,
-        alt: "CityMaid Services Nepal",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "CityMaid Services – Trusted Maid & Domestic Helper Placement in Nepal",
-    description: "Connecting you with reliable, professional maids, nannies, cooks, and caregivers for your home or business in Nepal.",
-    images: ["https://www.citymaidservices.net/og-image.jpg"], // Replace with your actual image
-  },
-};
-
 export default function Home() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
