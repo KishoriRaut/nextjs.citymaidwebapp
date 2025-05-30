@@ -1,5 +1,6 @@
 module.exports = {
   siteUrl: 'https://www.citymaidservices.net',
-  generateRobotsTxt: true, // (optional)
-  // ...other options
+  generateRobotsTxt: true,
+  sourceDir: 'app',
+  // exclude: ['/404', '/_error', '/_not-found'],
 };
