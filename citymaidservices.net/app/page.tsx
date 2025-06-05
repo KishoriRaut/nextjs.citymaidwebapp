@@ -3,8 +3,81 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useState } from "react";
+import Script from 'next/script';
 import { MdHome, MdCleaningServices, MdInfo, MdAttachMoney, MdStar, MdEmail, MdPhone, MdHelp, MdElderly, MdChildCare, MdOutlinePerson, MdOutlineRestaurantMenu } from "react-icons/md";
 import { FaUserTie, FaUserNurse, FaUserCog } from "react-icons/fa";
+
+export const metadata = {
+  title: "Professional Cleaning Services | City Maid Services",
+  description: "Professional home and office cleaning services. We provide reliable, thorough, and affordable cleaning solutions tailored to your needs.",
+  keywords: "cleaning services, house cleaning, office cleaning, maid service, professional cleaners, home cleaning, deep cleaning, regular cleaning",
+  authors: [{ name: 'City Maid Services' }],
+  openGraph: {
+    title: 'Professional Cleaning Services | City Maid Services',
+    description: 'Professional home and office cleaning services. We provide reliable, thorough, and affordable cleaning solutions tailored to your needs.',
+    url: 'https://citymaidservices.net',
+    siteName: 'City Maid Services',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Professional Cleaning Services | City Maid Services',
+    description: 'Professional home and office cleaning services. We provide reliable, thorough, and affordable cleaning solutions tailored to your needs.',
+    creator: '@citymaidservices',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+// FAQ Schema for rich results
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What areas do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve the entire metropolitan area, including [list of areas]. Contact us to confirm if we cover your location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I get my home cleaned?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most of our clients choose weekly or bi-weekly cleanings, but we can accommodate any schedule that works for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are your cleaning products safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we use eco-friendly and pet-safe cleaning products. Let us know if you have any specific allergies or preferences."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be home during the cleaning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, you don't need to be home. Many of our clients provide us with a key or door code for access."
+      }
+    }
+  ]
+};
 
 export default function Home() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
@@ -98,6 +171,11 @@ export default function Home() {
   ];
   return (
     <div className="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header />
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-200 to-teal-100 py-10 px-2 sm:py-16 sm:px-4 flex flex-col items-center text-center">
